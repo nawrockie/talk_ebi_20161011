@@ -1,0 +1,16 @@
+Harnessing conserved secondary structure to computationally identify RNA homologs
+
+Some RNAs do not encode proteins, but rather function directly as
+RNAs. Many of these RNAs form stable, evolutionarily conserved
+three-dimensional structures that are crucial to their function. The
+Infernal software package implements covariance models (CMs),
+probabilistic models that take both sequence and structural similarity
+into account when searching for and creating alignments of homologous
+RNAs. Infernal is used by the Rfam database to annotate RNAs in
+genomes and other sequence datasets. The high computational complexity
+of CM dynamic programming alignment algorithms makes CM methods slow,
+and has limited their practical application. I will discuss recent
+improvements to Infernal, including acceleration strategies that
+mitigate this complexity and make large-scale sequence searches, such
+as those performed by Rfam, possible in reasonable amounts of time while
+sacrificing very little sensitivity.
