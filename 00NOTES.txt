@@ -1,0 +1,55 @@
+EPN, Wed Sep 28 13:41:12 2016
+
+Abstract:
+Harnessing conserved secondary structure to computationally identify RNA homologs
+
+Some RNAs do not encode proteins, but rather function directly as
+RNAs. Many of these RNAs form stable, evolutionarily conserved
+three-dimensional structures that are crucial to their function. The
+Infernal software package implements covariance models (CMs),
+probabilistic models that take both sequence and structural similarity
+into account when searching for and creating alignments of homologous
+RNAs. Infernal is used by the Rfam database to annotate RNAs in
+genomes and other sequence datasets. The high computational complexity
+of CM dynamic programming alignment algorithms makes CM methods slow,
+and has limited their practical application. I will discuss recent
+improvements to Infernal, including acceleration strategies that
+mitigate this complexity and make large-scale sequence searches, such
+as those performed by Rfam, possible in reasonable amounts of time while
+sacrificing very little sensitivity.
+
+--------------
+Tentative plan:
+
+Beginning of JSSS talk (Jan 2014) 
+- tRNA structure discovery (motivation for homology search and
+  introduction to RNA secondary structure)
+
+Somewhere about the middle transition to modern (Nov 2015 RNA club)
+talk that culminates in removing BLAST filters
+
+Finish with recent improvements to Infernal:
+ - cmscan saves profiles instead of re-reading
+ - clan overlaps 
+
+----------
+Getting a skeleton set of slides that I can do a walkthrough of and
+modify as necessary:
+
+ON MACBOOK PRO:
+
+<[talk_ebi_20161011]> pwd
+/Users/nawrockie/Dropbox/work/notebook/16_0909_talk_infernal_ebi/talk_ebi_20161011
+
+<[16_0909_talk_infernal_ebi]> cd talk_ebi_20161011/
+<[talk_ebi_20161011]> cp ../../13_1216_talk_janelia_jsss/latex/jsss.tex ./
+<[talk_ebi_20161011]> mkdir figs
+<[talk_ebi_20161011]> cp ../../13_1216_talk_janelia_jsss/latex/figs/* ./figs
+cp: ../../13_1216_talk_janelia_jsss/latex/figs/bkups is a directory (not copied).
+
+<[talk_ebi_20161011]> cp ../../15_1103_talk_rna_club/talk_rna_club_20151103/rnaclub-20151103.tex ./
+<[talk_ebi_20161011]> cp ../../15_1016_talk_cbb_retreat/git-latex/cbb-retreat2015.tex ./
+
+
+
+
