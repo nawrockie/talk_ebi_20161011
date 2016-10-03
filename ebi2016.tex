@@ -16,6 +16,7 @@
 \definecolor{myblue}{rgb}{0,0.2,0.4}
 \definecolor{mygreen}{rgb}{0,0.5,0.0}
 \definecolor{mypurple}{cmyk}{0.5,1.0,0.0,0.0}
+\definecolor{myorange}{cmyk}{0.0,0.75,1.0,0.0}
 %\color{myblue}
 
 \begin{document}
@@ -31,7 +32,9 @@ Eric Nawrocki
 
 National Center for Biotechnology Information\\
 National Institutes of Health\\
+Bethesda, MD, USA\\
 
+\vspace{1in}
 \includegraphics[width=2.5in]{figs/ncbi-logo}
 
 %10.05.11
@@ -59,6 +62,104 @@ National Institutes of Health\\
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{slide}
 \center{\includegraphics[width=10.5in]{figs/16s-5s-trna-allblack}}
+\end{slide}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{slide}
+\begin{center}
+\textbf{Functional RNAs play many vital roles in the cell}
+\end{center}
+\medskip
+
+\small
+\begin{center}
+\begin{tabular}{r|l|ccc}
+%\item
+%  Noncoding RNA (ncRNA): all RNAs other than mRNA
+ & key RNAs involved & archaea & bacteria & eukarya \\ \hline
+ & \\ 
+translation & ribosomal RNAs & x & x & x \\
+            & transfer RNAs  & x & x & x \\
+            & RNase P RNA    & x & x & x \\
+            & snoRNAs        & x &   & x \\ 
+            & SRP RNA        & x & x & x \\ 
+            & tmRNA          &   & x &   \\ 
+            & RNaseMRP       &   &   & x \\ 
+            &  \\ 
+gene expression & riboswitches & ? & x & ? \\
+                & microRNAs &  & & x \\
+                & 6S RNA & & & x\\ 
+                & \\ 
+splicing        & U1, U2, U4, U5, U6 & & & x \\ 
+                & \\
+other           & telomerase RNA & & & x \\ 
+                & Y RNA          & & & x \\
+                & Vault RNA      & & & x \\
+                & many more... & & & \\ 
+\end{tabular}
+\end{center}
+
+\vfill
+\end{slide}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{slide}
+\begin{center}
+\textbf{Functional RNAs play many vital roles in the cell}
+\end{center}
+\medskip
+
+\small
+\begin{center}
+\begin{tabular}{r|l|ccc}
+%\item
+%  Noncoding RNA (ncRNA): all RNAs other than mRNA
+ & key RNAs involved & archaea & bacteria & eukarya \\ \hline
+ & \\ 
+translation & ribosomal RNAs & x & x & x \\
+            & transfer RNAs  & x & x & x \\
+            & RNase P RNA    & x & x & x \\
+            & snoRNAs        & x &   & x \\ 
+            & SRP RNA        & x & x & x \\ 
+            & tmRNA          &   & x &   \\ 
+            & RNaseMRP       &   &   & x \\ 
+            &  \\ 
+gene expression & riboswitches & ? & x & ? \\
+                & microRNAs &  & & x \\
+                & 6S RNA & & & x\\ 
+                & \\ 
+splicing        & U1, U2, U4, U5, U6 & & & x \\ 
+                & \\
+other           & telomerase RNA & & & x \\ 
+                & Y RNA          & & & x \\
+                & Vault RNA      & & & x \\
+                & many more... & & & \\ 
+\end{tabular}
+
+
+\center{\includegraphics[width=2.5in]{figs/rfam-logo}}
+
+database of more than 2400 non-coding RNAs \\ each represented by a
+secondary structure, alignment, and covariance model.
+\end{center}
+
+\vfill
+\end{slide}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{slide}
+\begin{center}
+\textbf{Outline of talk}
+
+\small
+\begin{description}
+\item[1.] 1965: Secondary structure determination of transfer RNA
+\item[2.] Sequence and sequence+structure profiles
+%\item[3.] Benchmarking RNA homology search
+\item[3.] Accelerating RNA homology search
+\item[4.] Implications for Rfam
+\item[5.] Newest features in latest version of Infernal
+\end{description}
+
+\end{center}
+\vfill
 \end{slide}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{slide}
@@ -127,10 +228,17 @@ National Institutes of Health\\
 \small
 \begin{itemize}
 \item What we can learn about the gene family being studied:
-\begin{itemize}
+  \begin{itemize}
   \item structure
-  \item conservation suggests functional importance 
-\end{itemize}
+    \begin{itemize}
+    \item tRNA (Holley, 1965)
+    \item SSU rRNA (Woese, 1980)
+    \end{itemize}
+  \item conservation suggests functional importance
+    \begin{itemize}
+    \item NEED EXAMPLE(S)
+    \end{itemize}
+  \end{itemize}
 \end{itemize}
 
 \vfill
@@ -147,17 +255,32 @@ National Institutes of Health\\
 \small
 \begin{itemize}
 \item What we can learn about the gene family being studied:
-\begin{itemize}
+  \begin{itemize}
   \item structure
+    \begin{itemize}
+    \item tRNA (Holley, 1965)
+    \item SSU rRNA (Woese, 1980)
+    \end{itemize}
   \item conservation suggests functional importance
-\end{itemize}
+    \begin{itemize}
+    \item NEED EXAMPLE(S)
+    \end{itemize}
+  \end{itemize}
 
 \item What we can learn about organism/environment sequences derive
   from:
-\begin{itemize}
+  \begin{itemize}
   \item which biological processes are being carried out
+    \begin{itemize}
+    \item archaeal snoRNAs (GOOD EXAMPLE?)
+    \item bacterial rhodopsin (DeLong, 2000)
+    \end{itemize}
   \item phylogenetic placement
-\end{itemize}
+    \begin{itemize}
+    \item 16S SSU rRNA (Woese, 1977 and many more)
+    \item Fungal ITS sequences
+    \end{itemize}
+  \end{itemize}
 \end{itemize}
 
 \vfill
@@ -168,23 +291,39 @@ National Institutes of Health\\
 \center{\textbf{Comparative sequence analysis informs biologists}}
 
 \small
+\begin{center}
+
 \begin{itemize}
 \item What we can learn about the gene family being studied:
-\begin{itemize}
+  \begin{itemize}
   \item structure
+    \begin{itemize}
+    \item tRNA (Holley, 1965)
+    \item SSU rRNA (Woese, 1980)
+    \end{itemize}
   \item conservation suggests functional importance
-\end{itemize}
-
+    \begin{itemize}
+    \item NEED EXAMPLE(S)
+    \end{itemize}
+  \end{itemize}
+  
 \item What we can learn about organism/environment sequences derive
   from:
-\begin{itemize}
+  \begin{itemize}
   \item which biological processes are being carried out
+    \begin{itemize}
+    \item archaeal snoRNAs (GOOD EXAMPLE?)
+    \item bacterial rhodopsin (DeLong, 2000)
+    \end{itemize}
   \item phylogenetic placement
-\end{itemize}
+    \begin{itemize}
+    \item 16S SSU rRNA (Woese, 1977 and many more)
+    \item Fungal ITS sequences
+    \end{itemize}
+  \end{itemize}
 \end{itemize}
 
-\normalsize
-\begin{center}
+\normalsize    
 Comparative analysis requires multiple gene family examples
 (homologs).
 
@@ -194,6 +333,9 @@ family members to find additional homologs.}
 
 \vfill
 \end{slide}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{comment}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{slide}
 
@@ -212,6 +354,26 @@ family members to find additional homologs.}
   profile hidden Markov models (profile HMMs)
 \end{itemize}
 
+\vfill
+\end{slide}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\end{comment}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{slide}
+\begin{center}
+\textbf{Outline of talk}
+
+\begin{description}
+\item[1.] 1965: Secondary structure determination of transfer RNA
+\item[\textcolor{myorange}{2.}] \textcolor{myorange}{Sequence and sequence+structure profiles}
+%\item[3.] Benchmarking RNA homology search
+\item[3.] Accelerating RNA homology search
+\item[4.] Implications for Rfam
+\item[5.] Newest features in latest version of Infernal
+\end{description}
+
+\end{center}
 \vfill
 \end{slide}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -378,6 +540,24 @@ Base-paired positions covary \\ to maintain Watson-Crick complementarity.
 \vfill 
 \end{slide}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{slide}
+\begin{center}
+\textbf{Outline of talk}
+
+\begin{description}
+\item[1.] 1965: Secondary structure determination of transfer RNA
+\item[2.] Sequence and sequence+structure profiles
+%\item[3.] Benchmarking RNA homology search
+\item[\textcolor{myorange}{3.}] \textcolor{myorange}{Accelerating RNA homology search}
+\item[4.] Implications for Rfam
+\item[5.] Newest features in latest version of Infernal
+\end{description}
+
+\end{center}
+\vfill
+\end{slide}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{slide}
 \begin{center}
 \large
@@ -524,6 +704,24 @@ Base-paired positions covary \\ to maintain Watson-Crick complementarity.
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{slide}
+\begin{center}
+\textbf{Outline of talk}
+
+\begin{description}
+\item[1.] 1965: Secondary structure determination of transfer RNA
+\item[2.] Sequence and sequence+structure profiles
+%\item[3.] Benchmarking RNA homology search
+\item[3.] Accelerating RNA homology search
+\item[\textcolor{myorange}{4.}] \textcolor{myorange}{Implications for Rfam}
+\item[5.] Newest features in latest version of Infernal
+\end{description}
+
+\end{center}
+\vfill
+\end{slide}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{slide}
 \begin{center}
 
@@ -650,6 +848,23 @@ New (Infernal 1.1)         & 4222.2   &  201,814 & 22,312 \\
 \flushleft{Nawrocki, Burge et. al, NAR 43:D130-D137, 2015.} 
 \end{slide}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{slide}
+\begin{center}
+\textbf{Outline of talk}
+
+\begin{description}
+\item[1.] 1965: Secondary structure determination of transfer RNA
+\item[2.] Sequence and sequence+structure profiles
+%\item[3.] Benchmarking RNA homology search
+\item[3.] Accelerating RNA homology search
+\item[4.] Implications for Rfam
+\item[\textcolor{myorange}{5.}] \textcolor{myorange}{Newest features in latest version of Infernal}
+\end{description}
+
+\end{center}
+\vfill
+\end{slide}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{slide}
 \begin{center}
 \textbf{TODO: Latest improvements in Infernal} \\

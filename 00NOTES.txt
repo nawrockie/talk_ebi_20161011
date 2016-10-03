@@ -51,5 +51,11 @@ cp: ../../13_1216_talk_janelia_jsss/latex/figs/bkups is a directory (not copied)
 <[talk_ebi_20161011]> cp ../../15_1016_talk_cbb_retreat/git-latex/cbb-retreat2015.tex ./
 
 
+=======================
+EPN, Mon Oct  3 12:06:24 2016
+
+Papers to read before giving talk:
+Holley 1965
+snoRNA paper (if I keep it in)
 
 
