@@ -1,0 +1,608 @@
+%\documentclass[a4,semhelv,landscape]{seminar}
+\documentclass[landscape]{slides}
+%\documentclass[pdf, default, slideBW, nocolorBG]{prosper}
+\usepackage[left=0.2cm,top=0.2cm,right=0.2cm,bottom=0.2cm,nohead,nofoot]{geometry}
+%\def\everyslide{\sffamily}
+%\usepackage{fullpage}
+\usepackage{graphicx}
+\usepackage[usenames]{color}
+%\usepackage{color}
+\usepackage{fancyvrb}
+\usepackage{verbatim}
+\usepackage{nopageno}
+\usepackage{setspace}
+%\usepackage{times}
+% define some nice colors
+\definecolor{myred}{rgb}{0.6,0,0}
+\definecolor{myblue}{rgb}{0,0.2,0.4}
+\definecolor{mygreen}{rgb}{0,0.5,0.0}
+\definecolor{mypurple}{cmyk}{0.5,1.0,0.0,0.0}
+%\color{myblue}
+\DefineVerbatimEnvironment{sreoutput}{Verbatim}{fontsize=\small,xleftmargin=10.0\parindent}%
+\DefineVerbatimEnvironment{sreoutput2}{Verbatim}{fontsize=\tiny,xleftmargin=10.0\parindent}%
+
+\begin{document}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%Slide 0 - title
+\begin{slide}
+\begin{center}
+\large{\textbf{Infernal development for Rfam}}
+
+\normalsize
+
+Eric Nawrocki
+
+9 December 2014
+
+\medskip
+
+\medskip
+
+\small
+
+%\begin{tabular}{c}
+%Howard Hughes Medical Institute \\ 
+%Janelia Research Campus \\
+%\\
+%Deparment of Genetics \\
+%Washington University in St. Louis \\
+%\\
+%\end{tabular}
+
+%\vspace{0.1in}
+
+%\includegraphics[width=2.5in]{figs/janelia-logo}
+%\includegraphics[width=3in]{figs/jrc-color}
+\end{center}
+\end{slide}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{slide}
+\begin{center}
+Until release 12.0, the Rfam pipeline used BLAST and Infernal
+
+\center{\includegraphics[width=9in]{figs/rfam-schema}}
+
+\end{center}
+
+\flushright{\tiny{From ``Rfam: updates to the RNA families database'', Gardner et al. 2008 NAR.}}
+
+\end{slide}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{slide}
+\begin{center}
+%\small \textbf{Search results will change: Infernal 1.1 filters are very different from BLAST filters}
+\small \textbf{Rfam 12.0 did not use BLAST}
+\end{center}
+\tiny
+
+\begin{itemize}
+\item Each Rfam release involves searching a large database (270Gb) called RFAMSEQ 
+with all CMs. 
+
+\item Old, WU-BLAST-filter paradigm:
+
+\begin{itemize}
+%\item
+%any nucleotides in a column with more than 50\% gaps are soft-masked
+%\item
+%nucleotides in a column with frequency less than 10\% get soft-masked
+\item
+seed alignments are masked and filtered to 95\% identity
+\item
+each surviving seed sequence was WU-BLASTed against Rfamseq
+%\begin{enumerate}
+%  \item -E 100 with default +5/-4 matrix (sensitivity)
+%  \item -E 10 with a +1/-3 matrix (specificity)
+%\end{enumerate}
+\item 
+BLAST hits plus some bordering sequence are excised into ``mini-DBs''
+and then searched with the CM using Infernal 1.0's \texttt{cmsearch}
+\end{itemize}
+
+\item New, Infernal 1.1 paradigm:
+\begin{itemize}
+  \item A profile HMM is constructed from each CM (stored in CM file)
+  \item Infernal 1.1's \texttt{cmsearch} uses the HMM in a multi-stage filter pipeline. 
+\end{itemize}
+
+\item Two big advantages of new paradigm:
+\begin{itemize}
+  \item Higher sensitivity
+  \item Simpler and more portable (no BLAST, no mini-DBs)
+\end{itemize}
+
+\end{itemize}
+
+%\center{\includegraphics[width=8in]{figs/rfam12-title}}
+
+\vfill
+\end{slide}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{slide}
+\begin{center}
+%\small \textbf{Search results will change: Infernal 1.1 filters are very different from BLAST filters}
+\small \textbf{Rfam 12.0 did not use BLAST}
+\end{center}
+\tiny
+
+\begin{itemize}
+\item Each Rfam release involves searching a large database (270Gb) called RFAMSEQ 
+with all CMs. 
+
+\item Old, WU-BLAST-filter paradigm:
+
+\begin{itemize}
+%\item
+%any nucleotides in a column with more than 50\% gaps are soft-masked
+%\item
+%nucleotides in a column with frequency less than 10\% get soft-masked
+\item
+seed alignments are masked and filtered to 95\% identity
+\item
+each surviving seed sequence was Blasted (WU-BLAST) against Rfamseq
+%\begin{enumerate}
+%  \item -E 100 with default +5/-4 matrix (sensitivity)
+%  \item -E 10 with a +1/-3 matrix (specificity)
+%\end{enumerate}
+\item 
+BLAST hits plus some bordering sequence are excised into ``mini-DBs''
+and then searched with the CM using Infernal 1.0's \texttt{cmsearch}
+\end{itemize}
+
+\item New, Infernal 1.1 paradigm:
+\begin{itemize}
+  \item A profile HMM is constructed from each CM (stored in CM file)
+  \item Infernal 1.1's \texttt{cmsearch} uses the HMM in a multi-stage filter pipeline. 
+\end{itemize}
+
+\item Two big advantages of new paradigm:
+\begin{itemize}
+  \item Higher sensitivity
+  \item Simpler and more portable (no BLAST, no mini-DBs)
+\end{itemize}
+
+\end{itemize}
+
+\center{\includegraphics[width=8in]{figs/rfam12-title}}
+
+\vfill
+\end{slide}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{slide}
+
+\center{\includegraphics[width=10in]{figs/seqspace1}}
+
+\vfill
+\end{slide}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{slide}
+
+\center{\includegraphics[width=10in]{figs/seqspace2}}
+
+\vfill
+\end{slide}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{slide}
+
+\center{\includegraphics[width=10in]{figs/seqspace3}}
+
+\vfill
+\end{slide}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{slide}
+
+\center{\includegraphics[width=10in]{figs/seqspace4}}
+
+\vfill
+\end{slide}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{comment}
+\begin{slide}
+
+\center{\includegraphics[width=10in]{figs/seqspace5}}
+
+\vfill
+\end{slide}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{slide}
+
+\center{\includegraphics[width=10in]{figs/seqspace6}}
+
+\vfill
+\end{slide}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{slide}
+
+\center{\includegraphics[width=10in]{figs/seqspace7}}
+
+\vfill
+\end{slide}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\end{comment}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{slide}
+
+\center{\includegraphics[width=10in]{figs/table1}}
+
+\vfill
+\end{slide}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{slide}
+\small
+\begin{center}
+\textbf{2013 Xfam slide: number of hits found by new (black) and old (grey) filtering paradigms}
+\end{center}
+
+\center{\includegraphics[width=8.5in]{figs/six-hist}}
+
+\vfill
+\end{slide}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{slide}
+\small
+\begin{center}
+\textbf{Sensitivity is not significantly affected for IRE\_I (and IRE\_II)}
+%\textbf{Sensitivity is not significantly affected for IRE\_1}
+
+\tt
+
+Rfam 12.0 models and thresholds:
+
+%
+%\begin{tabular}{ll|rr|rr|rrr|rrrr|}
+%\tiny
+%     &       &        &      & GA  & GA & time  & time  & time      & \#hits & \#hits & \#unq & \#unq \\
+%accn & model & \#seed & clen & bit & E  & (new) & (old) & (old/new) &  (new) & (old)  & (new) & (old) \\ \hline
+%RF00037 & IRE\_1 & 62 & 36   & 34.0 & 0.65 & 5.4h  & 41.3h & 7.7    & 2522   & 2503   & 39    & 20 \\
+%\end{tabular}
+
+\begin{tabular}{ll|rr|rr|rrrr|}
+\tiny
+     &       &        &      & GA  & GA & \#hits & \#hits & \#unq & \#unq \\
+accn & model & \#seed & clen & bit & E  &  (new) & (old)  & (new) & (old) \\ \hline
+RF00037 & IRE\_I & 62 & 36   & 34.0 & 0.65 & 2522   & 2503   & 39    & 20 \\
+RF02253 & IRE\_II & 29 & 31  & 27.0 & 750  & 1272   & 810   & 468   & 6 \\
+\end{tabular}
+
+\vspace{1.5in}
+
+Rfam 11.0 models and thresholds:
+
+%
+%\begin{tabular}{ll|rr|rr|rrr|rrrr|}
+%\tiny
+%     &       &        &      & GA  & GA & time  & time  & time      & \#hits & \#hits & \#unq & \#unq \\
+%accn & model & \#seed & clen & bit & E  & (new) & (old) & (old/new) &  (new) & (old)  & (new) & (old) \\ \hline
+%RF00037 & IRE\_1 & 62 & 36   & 28.0 & 7.8 & 5.7h  & 42.4h & 7.4       & 3344   & 3107   & 247    & 10 \\
+%\end{tabular}
+\begin{tabular}{ll|rr|rr|rrrr|}
+\tiny
+     &       &        &      & GA  & GA & \#hits & \#hits & \#unq & \#unq \\
+accn & model & \#seed & clen & bit & E  &  (new) & (old)  & (new) & (old) \\ \hline
+RF00037 & IRE\_I  & 62 & 36   & 28.0 & 7.8 & 3344   & 3107   & 247    & 10 \\
+RF02253 & IRE\_II & 34 & 31   & 29.0 & 67  &  868   &  721   & 153    & 6 \\
+\end{tabular}
+\end{center}
+
+\vfill
+\end{slide}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{slide}
+\small
+\begin{center}
+\textbf{rfam\_scan.pl: search sequences for Rfam families}
+\end{center}
+
+\begin{center}
+\includegraphics[height=7in]{figs/twitter-rfam-scan}
+\includegraphics[height=7in]{figs/blog-long}
+\end{center}
+
+\vfill
+\end{slide}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{slide}
+\begin{center}
+\textbf{cmsearch versus cmscan}
+\medskip
+
+\begin{sreoutput}
+cmsearch:                                | cmscan:
+   for each query CM                     |    for each query sequence
+       for each target sequence          |        for each target CM
+           search for high-scoring hits  |            search for high-scoring hits
+                                         |
+                                         |
+- hits reported per model                | - hits reported per sequence
+                                         | - reads as little model
+                                         |   info as possible
+\end{sreoutput}   
+
+\scriptsize
+\begin{itemize}
+\item Neither is a satisfactory substitute for \texttt{rfam\_scan.pl}
+\begin{itemize}
+\item
+  \texttt{cmscan} is faster for one or a few short sequences 
+\item
+  \texttt{cmsearch} is faster for many short sequences 
+\item
+  \texttt{cmscan} is designed only for short sequences (10 Mb sequence limit).
+\item
+  Neither flags overlapping hits to different models.
+\end{itemize}
+\end{itemize}
+\end{center}
+
+\vfill
+
+\end{slide}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{slide}
+\begin{center}
+\textbf{Recent cmscan improvements}
+
+\small
+\begin{itemize}
+\item removed limit on sequence length; processes sequence windows identically
+to {\tt cmsearch}
+\item annotates overlapping hits on different models ({\tt cmsearch} can't do this)
+\item saves MSV filter scores instead of re-reading them for every sequence
+\end{itemize}
+
+\end{center}
+\vfill
+\end{slide}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{slide}
+\begin{center}
+\textbf{Metagenomics example (top=old, bottom=new)}
+
+\includegraphics[width=10.5in]{figs/meta-old}
+
+\vspace{1in}
+
+\includegraphics[width=10.5in]{figs/meta-new}
+
+\end{center}
+
+\vfill
+\end{slide}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{slide}
+\begin{center}
+\textbf{Genome example (top=old, bottom=new)}
+\small
+
+\includegraphics[width=9in]{figs/ecoli-old}
+
+\includegraphics[width=9in]{figs/ecoli-new}
+\end{center}
+
+\end{slide}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{slide}
+\begin{center}
+Infernal 1.1.1 cmsearch and cmscan timings
+\medskip
+
+\tt
+
+\tiny
+\emph{E. coli} genome: 4.6 Mb, 1 sequence
+
+%\begin{tabular}{l|r|rr|rr|rr|rr}
+%         & time    & \multicolumn{2}{c}{1 CPU} & \multicolumn{2}{c}{4 CPU} & \multicolumn{2}{c}{8 CPU} & \multicolumn{2}{c}{16 CPU} \\
+%program  & (1 CPU) & sec/seq & eff & sec/seq & eff & sec/seq & eff & sec/seq & eff \\ \hline
+%cmsearch &     0.5h& 1746.7 & 1.00 & 561.8 & 0.78 & 396.3 & 0.55 & 338.3 & 0.32 \\
+%cmscan   &     0.5h & 1678.6 & 1.00 & 525.3 & 0.80 & 362.6 & 0.58 & 240.7 & 0.44 \\
+%\end{tabular}
+
+\begin{tabular}{l|r|rr|rr|rr}
+         & time    & \multicolumn{2}{c}{1 CPU} & \multicolumn{2}{c}{4 CPU} & \multicolumn{2}{c}{8 CPU} \\ \cline{3-8}
+program  & (1 CPU) & sec/seq & eff & sec/seq & eff & sec/seq & eff \\ \hline
+cmsearch &     0.5h& 1746.7 & 1.00 & 561.8 & 0.78 & 396.3 & 0.55 \\
+cmscan   &     0.5h & 1678.6 & 1.00 & 525.3 & 0.80 & 362.6 & 0.58 \\
+\end{tabular}
+
+\medskip
+
+\medskip
+
+ERS167139 (human gut microbiome, 454): 166 Mb (avg 423nt) 393K sequences 
+
+\begin{tabular}{l|r|rr|rr|rr}
+         & time    & \multicolumn{2}{c}{1 CPU} & \multicolumn{2}{c}{4 CPU} & \multicolumn{2}{c}{8 CPU} \\ \cline{3-8}
+program  & (1 CPU) & sec/seq & eff & sec/seq & eff & sec/seq & eff \\ \hline
+cmsearch &  28.2h   & 0.26 & 1.00 &     0.07  & 0.87 &     0.04  & 0.82 \\
+cmscan   &  37.3h   & 0.34 & 1.00 &     0.28  & 0.30 &     0.26  & 0.16 \\
+
+%\begin{tabular}{l|r|rr|rr|rr|rr}
+%         & time    & \multicolumn{2}{c}{1 CPU} & \multicolumn{2}{c}{4 CPU} & \multicolumn{2}{c}{8 CPU} & \multicolumn{2}{c}{16 CPU} \\
+%program  & (1 CPU) & sec/seq & eff & sec/seq & eff & sec/seq & eff & sec/seq & eff \\ \hline
+\end{tabular}
+
+\medskip
+
+\medskip
+
+ERS235581 (human gut microbiome, Illumina HiSeq): 53Mb (avg: 120nt), 440K sequences
+
+\begin{tabular}{l|r|rr|rr|rr}
+         & time    & \multicolumn{2}{c}{1 CPU} & \multicolumn{2}{c}{4 CPU} & \multicolumn{2}{c}{8 CPU} \\ \cline{3-8}
+program  & (1 CPU) & sec/seq & eff & sec/seq & eff & sec/seq & eff \\ \hline
+cmsearch & 9.8h   & 0.08 & 1.00 & 0.02 & 0.80 & 0.02 & 0.62 \\
+cmscan   & 20.5h  & 0.17 & 1.00 & 0.14 & 0.31 & 0.13 & 0.16 \\
+
+%\begin{tabular}{l|r|rr|rr|rr|rr}
+%         & time    & \multicolumn{2}{c}{1 CPU} & \multicolumn{2}{c}{4 CPU} & \multicolumn{2}{c}{8 CPU} & \multicolumn{2}{c}{16 CPU} \\
+%program  & (1 CPU) & sec/seq & eff & sec/seq & eff & sec/seq & eff & sec/seq & eff \\ \hline
+%cmsearch & 9.8h   & 0.08 & 1.00 & 0.02 & 0.80 & 0.02 & 0.62 & 0.01 & 0.45 \\
+%cmscan   & 20.5h  & 0.17 & 1.00 & 0.14 & 0.31 & 0.13 & 0.16 & 0.11 & 0.09 \\
+\end{tabular}
+
+%\medskip
+%SRS580499 (Ocean metagenome, Illumina genome analyzer): 44Mb (avg 169nt), 263K sequences 
+%
+%\begin{tabular}{l|r|rr|rr|rr|rr}
+%         & time    & \multicolumn{2}{c}{1 CPU} & \multicolumn{2}{c}{4 CPU} & \multicolumn{2}{c}{8 CPU} & \multicolumn{2}{c}{16 CPU} \\
+%program  & (1 CPU) & sec/seq & eff & sec/seq & eff & sec/seq & eff & sec/seq & eff \\ \hline
+%cmsearch & 22.0h   & 0.30  & 1.00 &     0.09  & 0.88 & 0.05  & 0.70 & 0.03 & 0.69 \\
+%cmscan   & 28.6h   & 0.39  & 1.00 &     0.30  & 0.33 & 0.29  & 0.17 & 0.26 & 0.10 \\
+%\end{tabular}
+\end{center}
+\vfill
+\end{slide}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{slide}
+\begin{center}
+cmscan spends a lot more time in I/O than cmsearch
+\medskip
+
+\begin{sreoutput}
+cmsearch timings:
+
+ERS235581 1 CPU:# Total CPU time:34912.29u 130.14s   09:44:02.43 Elapsed: 09:44:34.86
+ERS235581 4 CPU:# Total CPU time:37093.47u 7384.68s  12:21:18.15 Elapsed: 03:02:29.31
+ERS235581 8 CPU:# Total CPU time:43126.91u 12584.30s 15:28:31.21 Elapsed: 01:58:18.52
+
+
+
+
+cmscan timings:
+
+ERS235581 1 CPU:# Total CPU time:54314.89u 18737.08s 20:17:31.97 Elapsed: 20:34:34.89
+ERS235581 4 CPU:# Total CPU time:77107.78u 40088.33s 32:33:16.11 Elapsed: 16:42:55.50
+ERS235581 8 CPU:# Total CPU time:78505.71u 44994.55s 34:18:20.26 Elapsed: 16:08:11.29
+\end{sreoutput}
+
+\vfill
+\end{center}
+\end{slide}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{slide}
+\begin{center}
+New cmscan: MSV filter scores saved instead of re-read for each sequence
+\medskip
+
+\tt
+
+\tiny
+\emph{E. coli} genome: 4.6 Mb, 1 sequence
+
+\begin{tabular}{l|r|rr|rr|rr}
+         & time    & \multicolumn{2}{c}{1 CPU} & \multicolumn{2}{c}{4 CPU} & \multicolumn{2}{c}{8 CPU} \\ \cline{3-8}
+program  & (1 CPU) & sec/seq & eff & sec/seq & eff & sec/seq & eff \\ \hline
+cmsearch & 0.5h & 1808.2 & 1.00 & 628.5 & 0.72 & 389.0 & 0.58 \\
+cmscan   & 0.5h & 1735.0 & 1.00 & 651.4 & 0.67 & 359.0 & 0.60 \\
+\end{tabular}
+
+%\begin{tabular}{l|r|rr|rr|rr|rr}
+%         & time    & \multicolumn{2}{c}{1 CPU} & \multicolumn{2}{c}{4 CPU} & \multicolumn{2}{c}{8 CPU} & \multicolumn{2}{c}{16 CPU} \\
+%program  & (1 CPU) & sec/seq & eff & sec/seq & eff & sec/seq & eff & sec/seq & eff \\ \hline
+%cmsearch & 0.5h & 1808.2 & 1.00 & 628.5 & 0.72 & 389.0 & 0.58 & 338.3 & 0.33 \\
+%cmscan   & 0.5h & 1735.0 & 1.00 & 651.4 & 0.67 & 359.0 & 0.60 & 241.2 & 0.45 \\
+
+\medskip
+
+\medskip
+
+ERS167139 (human gut microbiome, 454): 166 Mb (avg 423nt) 393K sequences 
+
+\begin{tabular}{l|r|rr|rr|rr}
+         & time    & \multicolumn{2}{c}{1 CPU} & \multicolumn{2}{c}{4 CPU} & \multicolumn{2}{c}{8 CPU} \\ \cline{3-8}
+program  & (1 CPU) & sec/seq & eff & sec/seq & eff & sec/seq & eff \\ \hline
+cmsearch & 25.3h & 0.23 & 1.00 & 0.07 & 0.85 & 0.04 & 0.77 \\
+cmscan   & 26.7h & 0.24 & 1.00 & 0.17 & 0.36 & 0.16 & 0.19 \\ 
+\end{tabular}
+
+%\begin{tabular}{l|r|rr|rr|rr|rr}
+%         & time    & \multicolumn{2}{c}{1 CPU} & \multicolumn{2}{c}{4 CPU} & \multicolumn{2}{c}{8 CPU} & \multicolumn{2}{c}{16 CPU} \\
+%program  & (1 CPU) & sec/seq & eff & sec/seq & eff & sec/seq & eff & sec/seq & eff \\ \hline
+%cmsearch & 25.3h & 0.23 & 1.00 & 0.07 (0.85) & 0.04 (0.77) & 0.02 (0.63) \\
+%cmscan   & 26.7h & 0.24 & 1.00 & 0.17 (0.36) & 0.16 (0.19) & 0.15 (0.10 \\
+
+\medskip
+
+\medskip
+
+ERS235581 (human gut microbiome, Illumina HiSeq): 53Mb (avg: 120nt), 440K sequences
+
+\begin{tabular}{l|r|rr|rr|rr}
+         & time    & \multicolumn{2}{c}{1 CPU} & \multicolumn{2}{c}{4 CPU} & \multicolumn{2}{c}{8 CPU} \\ \cline{3-8}
+program  & (1 CPU) & sec/seq & eff & sec/seq & eff & sec/seq & eff \\ \hline
+cmsearch & 8.3h    & 0.07 & 1.00 &     0.03  & 0.66 &     0.02  & 0.51 \\
+cmscan   & 9.5h    & 0.08 & 1.00 &     0.05  & 0.37 &     0.05  & 0.19 \\
+\end{tabular}
+
+%\begin{tabular}{l|r|rr|rr|rr|rr}
+%         & time    & \multicolumn{2}{c}{1 CPU} & \multicolumn{2}{c}{4 CPU} & \multicolumn{2}{c}{8 CPU} & \multicolumn{2}{c}{16 CPU} \\
+%program  & (1 CPU) & sec/seq & eff & sec/seq & eff & sec/seq & eff & sec/seq & eff \\ \hline
+%cmsearch & 8.3h    & 0.07 & 1.00 &     0.03  & 0.66 &     0.02  & 0.51 &     0.01  (0.38)\\
+%cmscan   & 9.5h    & 0.08 & 1.00 &     0.05  & 0.37 &     0.05  & 0.19 &     0.05  (0.10) \\
+
+%SRS580499 (Ocean metagenome, Illumina genome analyzer): 44Mb (avg 169nt), 263K sequences 
+%
+%\begin{tabular}{l|r|rr|rr|rr|rr}
+%         & time    & \multicolumn{2}{c}{1 CPU} & \multicolumn{2}{c}{4 CPU} & \multicolumn{2}{c}{8 CPU} & \multicolumn{2}{c}{16 CPU} \\
+%program  & (1 CPU) & sec/seq & eff & sec/seq & eff & sec/seq & eff & sec/seq & eff \\ \hline
+%cmsearch & 20.2h   & 0.28 & 1.00 &     0.08  & 0.82 &     0.05  & 0.74 &     0.03  & 0.63 \\
+%cmscan   & 21.3h   & 0.29 & 1.00 &     0.22  & 0.34 &     0.22  & 0.17 &     0.19  & 0.10 \\
+%\end{tabular}
+
+\end{center}
+\vfill
+\end{slide}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{slide}
+\begin{center}
+cmscan I/O is now minimal, but still doesn't scale nearly as well as cmsearch
+due to more variance in thread running times
+\medskip
+
+\begin{sreoutput}
+cmsearch timings:
+
+ERS235581 1 CPU:# Total CPU time:29779.10u    74.40s 08:17:33.50 Elapsed: 08:17:58.36
+ERS235581 4 CPU:# Total CPU time:38156.49u  7961.25s 12:48:37.74 Elapsed: 03:08:38.97
+ERS235581 8 CPU:# Total CPU time:43507.61u 12325.36s 15:30:32.97 Elapsed: 02:01:22.10
+
+
+
+
+new cmscan timings:
+
+ERS235581 1 CPU:# Total CPU time:31796.65u  924.07s 09:05:20.72 Elapsed: 09:28:58.01
+ERS235581 4 CPU:# Total CPU time:31246.15u 2100.35s 09:15:46.50 Elapsed: 06:23:25.25
+ERS235581 8 CPU:# Total CPU time:31886.52u 3274.00s 09:46:00.52 Elapsed: 06:06:48.24
+
+old cmscan timings:
+
+ERS235581 1 CPU:# Total CPU time:54314.89u 18737.08s 20:17:31.97 Elapsed: 20:34:34.89
+ERS235581 4 CPU:# Total CPU time:77107.78u 40088.33s 32:33:16.11 Elapsed: 16:42:55.50
+ERS235581 8 CPU:# Total CPU time:78505.71u 44994.55s 34:18:20.26 Elapsed: 16:08:11.29
+
+\end{sreoutput}
+
+\vfill
+\end{center}
+\end{slide}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\end{document}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
