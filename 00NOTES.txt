@@ -58,4 +58,21 @@ Papers to read before giving talk:
 Holley 1965
 snoRNA paper (if I keep it in)
 
+=================================
+EPN, Wed Oct  5 11:34:59 2016
+
+Still to do for the slides:
+
+- Find some info about what parts of SSU are responsible for what, or
+  drop that slide.
+ 
+- Finish 1.1.2 module:
+  - build slides with old timings
+  - rerun experiments to update timings
+  - do nhmmer experiments
+
+- Walkthroughs
+
+--------------------------------
+
 
