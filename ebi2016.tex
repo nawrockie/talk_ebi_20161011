@@ -876,8 +876,7 @@ New (Infernal 1.1)         & 4222.2   &  201,814 & 22,312 \\
 
 \medskip
 \begin{itemize}
-\item First release after moving to NCBI
-\item Infernal is no longer my primary project
+\item First release after moving to NCBI (without Infernal as my primary project)
 \item Main difference is in the \texttt{cmscan} executable program 
 \begin{itemize}
   \item faster
@@ -932,12 +931,17 @@ New (Infernal 1.1)         & 4222.2   &  201,814 & 22,312 \\
   \end{itemize}
 \end{itemize}
 
+\begin{itemize}
+\item cmscan reads each CM for each sequence (\~ 2500 models)
+\item if sequences are short this makes reading CMs a bottleneck
+\end{itemize}
+
 \vfill
 \end{slide}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{slide}
 \begin{center}
-cmsearch and cmscan timings
+\textbf{cmsearch is faster than cmscan \\ for datasets with many short sequences}
 \end{center}
 \medskip
 
@@ -976,7 +980,7 @@ cmscan v1.1.1   &     0.5h& 1678.6  & 37.3h   & 0.34    & 20.5h   & 0.17 \\
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{slide}
 \begin{center}
-cmsearch and cmscan timings
+\textbf{cmscan v1.1.2 stores CM model parameters \\ in memory instead of re-reading them for each sequence}
 \end{center}
 \medskip
 
@@ -1019,11 +1023,36 @@ cmscan v1.1.2   &     0.5h& 1735.0  & \textcolor{coltwooftwo}{26.7h}   & \textco
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{slide}
 \begin{center}
-\textbf{Example of overlapping hits} \\
+\textbf{Example of overlapping hits in cmscan v1.1.1 output} \\
 
-\begin{itemize}
-\item SSU sequence? 
-\end{itemize}
+\medskip
+\medskip
+
+\includegraphics[width=10in]{figs/overlap-examples-1p1p1}
+
+\end{center}
+
+\vfill
+\end{slide}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{slide}
+\begin{center}
+\textbf{cmscan v1.1.2 marks up overlaps} \\
+
+\medskip
+\medskip
+
+\includegraphics[width=10in]{figs/overlap-examples}
+
+\end{center}
+
+\vfill
+\end{slide}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{slide}
+\begin{center}
+\textbf{cmscan v1.1.2 in ``hmmonly'' mode may be useful for \\ identifying RNAs in metagenomic datasets}
+
 \end{center}
 
 \vfill
