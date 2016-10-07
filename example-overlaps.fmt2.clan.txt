@@ -1,0 +1,51 @@
+#idx target name          accession query name           accession clan name mdl mdl from   mdl to seq from   seq to strand trunc pass   gc  bias  score   E-value inc olp anyidx afrct1 afrct2 winidx wfrct1 wfrct2 description of target
+#--- -------------------- --------- -------------------- --------- --------- --- -------- -------- -------- -------- ------ ----- ---- ---- ----- ------ --------- --- --- ------ ------ ------ ------ ------ ------ ---------------------
+1    LSU_rRNA_bacteria    RF02541   G6NTHBW01E1RH6       -         CL00112    cm     2647     2925        1      262      +    5'    2 0.50   0.0  223.4     6e-72  !   ^       -      -      -      -      -      - -
+2    LSU_rRNA_archaea     RF02540   G6NTHBW01E1RH6       -         CL00112    cm     2718     2990        1      262      +    5'    2 0.50   0.0  161.1   4.4e-48  !   =       1  1.000  1.000      "      "      " -
+3    5S_rRNA              RF00001   G6NTHBW01E1RH6       -         -          cm        1      119      347      457      +    no    1 0.51   0.0   69.1   7.6e-14  !   *       -      -      -      -      -      - -
+4    LSU_rRNA_eukarya     RF02543   G6NTHBW01E1RH6       -         CL00112    cm     3008     3160       11      167      +    no    4 0.50   0.0   55.3   6.1e-11  !   =       1  1.000  0.599      "      "      " -
+
+1    SSU_rRNA_bacteria      RF00177   G6NTHBW01DJ5GC       -         CL00111    cm      963     1339      374        1      - 5'&3'    4 0.50   0.0  362.1  3.4e-114  !   ^       -      -      -      -      -      - -
+2    SSU_rRNA_archaea       RF01959   G6NTHBW01DJ5GC       -         CL00111    cm      919     1294      374        1      - 5'&3'    4 0.50   0.0  235.5   1.9e-67  !   =       1  1.000  1.000      "      "      " -
+3    SSU_rRNA_eukarya       RF01960   G6NTHBW01DJ5GC       -         CL00111    cm     1218     1638      374        1      - 5'&3'    4 0.50   0.0  180.6   6.6e-52  !   =       1  1.000  1.000      "      "      " -
+4    SSU_rRNA_microsporidia RF02542   G6NTHBW01DJ5GC       -         CL00111    cm      841     1142      374        1      - 5'&3'    4 0.50   0.0  120.5   3.5e-34  !   =       1  1.000  1.000      "      "      " -
+
+1    LSU_rRNA_bacteria    RF02541   G6NTHBW01EMUQ5       -         CL00112    cm        1      243      231        1      -    3'    3 0.49   0.0  189.0     2e-60  !   ^       -      -      -      -      -      - -
+2    LSU_rRNA_archaea     RF02540   G6NTHBW01EMUQ5       -         CL00112    cm        1      224      232        1      -    3'    3 0.49   0.0  155.5   2.7e-46  !   =       1  0.996  1.000      "      "      " -
+3    tRNA                 RF00005   G6NTHBW01EMUQ5       -         CL00001    cm        1       71      417      345      -    no    1 0.56   0.0   62.6   3.6e-13  !   *       -      -      -      -      -      - -
+4    5_8S_rRNA            RF00002   G6NTHBW01EMUQ5       -         -          cm        1      154      219       70      -    no    1 0.55   0.0   52.3   7.3e-12  !   =       1  1.000  0.649      "      "      " -
+5    LSU_rRNA_eukarya     RF02543   G6NTHBW01EMUQ5       -         CL00112    cm        1       83       84        1      -    3'    3 0.42   0.0   49.3   2.2e-09  !   =       1  1.000  0.364      "      "      " -
+
+1    SSU_rRNA_bacteria      RF00177   G6NTHBW01EJPTJ       -         CL00111    cm     1228     1533        1      300      +    5'    2 0.57   0.0  283.4   9.8e-89  !   ^       -      -      -      -      -      - -
+2    SSU_rRNA_archaea       RF01959   G6NTHBW01EJPTJ       -         CL00111    cm     1183     1477        1      298      +    5'    2 0.58   0.0  205.1   2.3e-58  !   =       1  1.000  0.993      "      "      " -
+3    SSU_rRNA_eukarya       RF01960   G6NTHBW01EJPTJ       -         CL00111    cm     1520     1851        1      295      +    5'    2 0.58   0.0  150.2   1.2e-42  !   =       1  1.000  0.983      "      "      " -
+4    SSU_rRNA_microsporidia RF02542   G6NTHBW01EJPTJ       -         CL00111    cm     1058     1312        1      295      +    5'    2 0.58   0.0  111.3   2.4e-31  !   =       1  1.000  0.983      "      "      " -
+5    tRNA                   RF00005   G6NTHBW01EJPTJ       -         CL00001    cm        1       39      414      454      +    3'    3 0.44   0.0   26.9    0.0035  !   *       -      -      -      -      -      - -
+
+1    tRNA                 RF00005   G6NTHBW01DEUYO       -         CL00001    cm        1       71      304      376      +    no    1 0.51   0.0   52.6   2.4e-10  !   ^       -      -      -      -      -      - -
+2    tRNA                 RF00005   G6NTHBW01DEUYO       -         CL00001    cm        1       71      176      299      +    no    1 0.51   0.0   49.5   1.7e-09  !   ^       -      -      -      -      -      - -
+3    tRNA                 RF00005   G6NTHBW01DEUYO       -         CL00001    cm        1       62      382      454      +    3'    3 0.58   0.0   37.9   2.9e-06  !   *       -      -      -      -      -      - -
+4    SNORD77              RF00591   G6NTHBW01DEUYO       -         CL00070    cm        9       35      174      200      +    no    1 0.33   0.0   19.5       2.3  ?   =       2  0.926  0.202      "      "      " -
+5    Deinococcus_Y_RNA    RF01053   G6NTHBW01DEUYO       -         -          cm        1      126      206      336      +    no    1 0.52   0.0   16.7       6.6  ?   =       1  0.252  0.452      "      "      " -
+
+1    Cobalamin            RF00174   G6NTHBW01D9UWW       -         CL00101    cm        1      124      141        1      -    3'    3 0.48   0.0   52.9   2.1e-12  !   ^       -      -      -      -      -      - -
+2    AdoCbl_riboswitch    RF01482   G6NTHBW01D9UWW       -         -          cm       28       95       90       39      -    no    1 0.56   0.0   22.7      0.15  ?   =       1  1.000  0.369      "      "      " -
+
+1    RNaseP_bact_a        RF00010   G6NTHBW01ERH9E       -         -          cm        1      280      266        1      -    3'    3 0.56   0.0  198.1   2.9e-63  !   ^       -      -      -      -      -      - -
+2    RNaseP_arch          RF00373   G6NTHBW01ERH9E       -         -          cm        1      257      267        1      -    3'    3 0.57   0.0   47.7   9.4e-12  !   =       1  0.996  1.000      "      "      " -
+
+1    LSU_rRNA_bacteria    RF02541   G6NTHBW01C3S8P       -         CL00112    cm        1      102      102        1      -    3'    3 0.52   0.0   72.2   2.5e-21  !   ^       -      -      -      -      -      - -
+2    LSU_rRNA_archaea     RF02540   G6NTHBW01C3S8P       -         CL00112    cm        1      102      103        1      -    3'    3 0.51   0.0   61.6   1.3e-16  !   =       1  0.990  1.000      "      "      " -
+3    tRNA                 RF00005   G6NTHBW01C3S8P       -         CL00001    cm        1       71      290      216      -    no    1 0.56   0.0   57.6   9.4e-12  !   *       -      -      -      -      -      - -
+4    5_8S_rRNA            RF00002   G6NTHBW01C3S8P       -         -          cm        1       88       90        1      -    3'    3 0.54   0.0   29.3   2.6e-05  !   =       1  1.000  0.882      "      "      " -
+
+1    tRNA                 RF00005   G6NTHBW01EEDDO       -         CL00001    cm        1       71      382      297      -    no    1 0.55   0.0   63.0   2.9e-13  !   ^       -      -      -      -      -      - -
+2    tRNA                 RF00005   G6NTHBW01EEDDO       -         CL00001    cm        1       71      210      138      -    no    1 0.55   0.0   59.9   2.1e-12  !   ^       -      -      -      -      -      - -
+3    tRNA                 RF00005   G6NTHBW01EEDDO       -         CL00001    cm        1       71      290      220      -    no    1 0.54   0.0   58.2   6.5e-12  !   *       -      -      -      -      -      - -
+4    tRNA                 RF00005   G6NTHBW01EEDDO       -         CL00001    cm        1       71      128       27      -    no    1 0.56   0.0   43.9   6.3e-08  !   ^       -      -      -      -      -      - -
+5    tRNA-Sec             RF01852   G6NTHBW01EEDDO       -         CL00001    cm        1       91      382      298      -    no    1 0.54   0.0   38.1   9.9e-06  !   =       1  1.000  0.988      "      "      " -
+6    tRNA                 RF00005   G6NTHBW01EEDDO       -         CL00001    cm       13       71      452      390      -    5'    2 0.57   0.0   30.9   0.00027  !   *       -      -      -      -      -      - -
+7    sX4                  RF02223   G6NTHBW01EEDDO       -         -          cm        1      167      385      265      -    no    1 0.53   0.0   23.7     0.013  ?   =       1  0.711  1.000      "      "      " -
+8    tRNA-Sec             RF01852   G6NTHBW01EEDDO       -         CL00001    cm        1       91      126       30      -    no    1 0.57   0.0   19.1      0.84  ?   =       4  1.000  0.951      "      "      " -
+9    cyano_tmRNA          RF01851   G6NTHBW01EEDDO       -         CL00001    cm       62      111      162      111      -    no    3 0.58   0.0   10.5       3.2  ?   =       2  0.481  0.342      "      "      " -
+

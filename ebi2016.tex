@@ -7,6 +7,7 @@
 \usepackage{graphicx}
 \usepackage[usenames]{color}
 %\usepackage{color}
+\usepackage{fancyvrb}
 \usepackage{verbatim}
 \usepackage{nopageno}
 \usepackage{setspace}
@@ -17,6 +18,8 @@
 \definecolor{mygreen}{rgb}{0,0.5,0.0}
 \definecolor{mypurple}{cmyk}{0.5,1.0,0.0,0.0}
 \definecolor{myorange}{cmyk}{0.0,0.75,1.0,0.0}
+\definecolor{coloneoftwo}{rgb}{0.266667,0.46666667,0.6666667}
+\definecolor{coltwooftwo}{rgb}{0.8,0.4,0.46666667}
 \DefineVerbatimEnvironment{sreoutput}{Verbatim}{fontsize=\small,xleftmargin=10.0\parindent}%
 \DefineVerbatimEnvironment{sreoutput2}{Verbatim}{fontsize=\tiny,xleftmargin=10.0\parindent}%
 
@@ -502,6 +505,18 @@ Base-paired positions covary \\ to maintain Watson-Crick complementarity.
 \vfill
 \end{slide}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\input{prob-hmm-cm-slides.tex}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{slide}
 \begin{center}
 \textbf{Is the added complexity worth it? \\
@@ -513,18 +528,6 @@ Base-paired positions covary \\ to maintain Watson-Crick complementarity.
 
 \vfill
 \end{slide}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%\input{prob-hmm-cm-slides.tex}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{slide}
 \begin{center}
@@ -869,28 +872,186 @@ New (Infernal 1.1)         & 4222.2   &  201,814 & 22,312 \\
 \begin{slide}
 \begin{center}
 \textbf{Infernal version 1.1.2 (July 2016)} \\
+\end{center}
 
-\begin{slide}
-\begin{center}
-\textbf{cmsearch versus cmscan}
 \medskip
+\begin{itemize}
+\item First release after moving to NCBI (without Infernal as my primary project)
+\item Main difference is in the \texttt{cmscan} executable program 
+\begin{itemize}
+  \item faster
+  \item annotates overlaps
+\end{itemize}
+\end{itemize}
 
-\begin{sreoutput}
-cmsearch:                                | cmscan:
-   for each query \textcolor{blue}{CM}                     |    for each query \textcolor{red}{sequence}
-       for each target \textcolor{red}{sequence}          |        for each target \textcolor{blue}{CM}
-           search for high-scoring hits  |            search for high-scoring hits
-                                         |
-                                         |
-- hits reported per model                | - hits reported per sequence
+%\begin{sreoutput}
+%cmsearch:                                | cmscan:
+%   for each query \textcolor{blue}{CM}                     |    for each query \textcolor{red}{sequence}
+%       for each target \textcolor{red}{sequence}          |        for each target \textcolor{blue}{CM}
+%           search for high-scoring hits  |            search for high-scoring hits
+%                                         |
+%                                         |
+% hits reported per model                | - hits reported per sequence
 %                                         | - reads as little model
 %                                         |   info as possible
-\end{sreoutput}   
+%\end{sreoutput}   
+
+\vfill
+\end{slide}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{slide}
+\begin{center}
+\textbf{cmscan versus cmsearch: a subtle but important difference}
+\end{center}
 
 \scriptsize
 \begin{itemize}
-\item example searches: bacterial genome; 1K metagenomic reads
+\item cmsearch: hits reported by model
+  \begin{itemize}
+  \item \textcolor{coloneoftwo}{for each query} \textcolor{coloneoftwo}{CM}
+    \begin{itemize}
+    \item \textcolor{coltwooftwo}{for each target} \textcolor{coltwooftwo}{sequence}
+      \begin{itemize}
+      \item search for high-scoring hits
+      \end{itemize}
+    \end{itemize}
+  \end{itemize}
 \end{itemize}
+
+\begin{itemize}
+\item cmscan: hits reported by sequence
+  \begin{itemize}
+  \item \textcolor{coltwooftwo}{for each query} \textcolor{coltwooftwo}{sequence}
+    \begin{itemize}
+    \item \textcolor{coloneoftwo}{for each target} \textcolor{coloneoftwo}{CM}
+      \begin{itemize}
+      \item search for high-scoring hits
+      \end{itemize}
+    \end{itemize}
+  \end{itemize}
+\end{itemize}
+
+\begin{itemize}
+\item cmscan reads each CM for each sequence (\~ 2500 models)
+\item if sequences are short this makes reading CMs a bottleneck
+\end{itemize}
+
+\vfill
+\end{slide}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{slide}
+\begin{center}
+\textbf{cmsearch is faster than cmscan \\ for datasets with many short sequences}
+\end{center}
+\medskip
+
+\small
+
+Three sequence datasets:
+\begin{enumerate}
+  \item \emph{E. coli} genome: 4.6 Mb, 1 sequence
+  \item ERS167139 (human gut microbiome, 454): 166 Mb (avg 423nt) 393K sequences 
+%  \item ERS235581 (human gut microbiome, Illumina HiSeq): 53Mb (avg: 120nt), 440K sequences
+  \item ERS235581 (human gut microbiome, HiSeq): 53Mb (avg: 120nt), 440K sequences
+\end{enumerate}
+
+\begin{center}
+%Infernal v1.1.1 timings
+
+\medskip
+\medskip
+
+%\tt
+%\tiny
+\begin{tabular}{l|r|r||r|r||r|r||}
+         & \multicolumn{2}{c||}{E.coli}  & \multicolumn{2}{c||}{ERS167139} & \multicolumn{2}{c||}{ERS235581} \\
+         & \multicolumn{2}{c||}{(4.6 mb, 1 seq)}  & \multicolumn{2}{c||}{(393K seqs, avg 423nt)} & \multicolumn{2}{c||}{(440K seqs, avg 120nt)} \\ \hline
+program  & time & sec/seq & time & sec/seq & time & sec/seq \\ \hline
+         &      &  & & & & \\
+cmsearch v1.1.1  &     0.5h& 1746.7  & 28.2h   & 0.26    & 9.8h    & 0.08 \\
+         &      &  & & & & \\
+cmscan v1.1.1   &     0.5h& 1678.6  & 37.3h   & 0.34    & 20.5h   & 0.17 \\
+         &      &  & & & & \\ 
+\end{tabular}
+
+\end{center}
+\vfill
+\end{slide}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{slide}
+\begin{center}
+\textbf{cmscan v1.1.2 stores CM model parameters \\ in memory instead of re-reading them for each sequence}
+\end{center}
+\medskip
+
+\small
+
+Three sequence datasets:
+\begin{enumerate}
+  \item \emph{E. coli} genome: 4.6 Mb, 1 sequence
+  \item ERS167139 (human gut microbiome, 454): 166 Mb (avg 423nt) 393K sequences 
+%  \item ERS235581 (human gut microbiome, Illumina HiSeq): 53Mb (avg: 120nt), 440K sequences
+  \item ERS235581 (human gut microbiome, HiSeq): 53Mb (avg: 120nt), 440K sequences
+\end{enumerate}
+
+\begin{center}
+%Infernal v1.1.1 timings
+
+\medskip
+\medskip
+
+%\tt
+%\tiny
+\begin{tabular}{l|r|r||r|r||r|r||}
+         & \multicolumn{2}{c||}{E.coli}  & \multicolumn{2}{c||}{ERS167139} & \multicolumn{2}{c||}{ERS235581} \\
+         & \multicolumn{2}{c||}{(4.6 mb, 1 seq)}  & \multicolumn{2}{c||}{(393K seqs, avg 423nt)} & \multicolumn{2}{c||}{(440K seqs, avg 120nt)} \\ \hline
+program  & time & sec/seq & time & sec/seq & time & sec/seq \\ \hline
+         &      &  & & & & \\
+cmsearch v1.1.1  &     0.5h& 1746.7  & 28.2h   & 0.26    & 9.8h    & 0.08 \\
+         &      &  & & & & \\
+cmscan v1.1.1   &     0.5h& 1678.6  & 37.3h   & 0.34    & 20.5h   & 0.17 \\
+         &      &  & & & & \\ \hline
+         &      &  & & & & \\ 
+cmsearch v1.1.2  &     0.5h& 1808.2  & 25.3h   & 0.23    & 8.3h    & 0.07 \\
+         &      &  & & & & \\
+cmscan v1.1.2   &     0.5h& 1735.0  & \textcolor{coltwooftwo}{26.7h}   & \textcolor{coltwooftwo}{0.24}    & \textcolor{coltwooftwo}{9.5h}   & \textcolor{coltwooftwo}{0.08} \\
+\end{tabular}
+
+\end{center}
+\vfill
+\end{slide}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{slide}
+\begin{center}
+\textbf{Example of overlapping hits in cmscan v1.1.1 output} \\
+
+\medskip
+\medskip
+
+\includegraphics[width=10in]{figs/overlap-examples-1p1p1}
+
+\end{center}
+
+\vfill
+\end{slide}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{slide}
+\begin{center}
+\textbf{cmscan v1.1.2 marks up overlaps} \\
+
+\medskip
+\medskip
+
+\includegraphics[width=10in]{figs/overlap-examples}
+
+\end{center}
+
+\vfill
+\end{slide}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{slide}
+\begin{center}
+\textbf{cmscan v1.1.2 in ``hmmonly'' mode may be useful for \\ identifying RNAs in metagenomic datasets}
 
 \end{center}
 
