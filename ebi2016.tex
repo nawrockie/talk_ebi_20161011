@@ -17,7 +17,8 @@
 \definecolor{mygreen}{rgb}{0,0.5,0.0}
 \definecolor{mypurple}{cmyk}{0.5,1.0,0.0,0.0}
 \definecolor{myorange}{cmyk}{0.0,0.75,1.0,0.0}
-%\color{myblue}
+\DefineVerbatimEnvironment{sreoutput}{Verbatim}{fontsize=\small,xleftmargin=10.0\parindent}%
+\DefineVerbatimEnvironment{sreoutput2}{Verbatim}{fontsize=\tiny,xleftmargin=10.0\parindent}%
 
 \begin{document}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -137,7 +138,7 @@ other           & telomerase RNA & & & x \\
 
 \center{\includegraphics[width=2.5in]{figs/rfam-logo}}
 
-database of more than 2400 non-coding RNAs \\ each represented by a
+database of more than 2400 non-coding RNA families \\ each represented by a
 secondary structure, alignment, and covariance model.
 \end{center}
 
@@ -730,7 +731,7 @@ Base-paired positions covary \\ to maintain Watson-Crick complementarity.
 \end{center}
 
 \begin{itemize}
-\item Rfam includes $>$ 2000 RNA families, each represented by an
+\item Rfam includes $>$ 2400 RNA families, each represented by an
   alignment, CM and set of predicted homologs in a large database (Rfamseq).
 \end{itemize}
 
@@ -867,18 +868,58 @@ New (Infernal 1.1)         & 4222.2   &  201,814 & 22,312 \\
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{slide}
 \begin{center}
-\textbf{TODO: Latest improvements in Infernal} \\
+\textbf{Infernal version 1.1.2 (July 2016)} \\
 
-\small
+\begin{slide}
+\begin{center}
+\textbf{cmsearch versus cmscan}
+\medskip
+
+\begin{sreoutput}
+cmsearch:                                | cmscan:
+   for each query \textcolor{blue}{CM}                     |    for each query \textcolor{red}{sequence}
+       for each target \textcolor{red}{sequence}          |        for each target \textcolor{blue}{CM}
+           search for high-scoring hits  |            search for high-scoring hits
+                                         |
+                                         |
+- hits reported per model                | - hits reported per sequence
+%                                         | - reads as little model
+%                                         |   info as possible
+\end{sreoutput}   
+
+\scriptsize
 \begin{itemize}
-\item Version 1.1.2 of Infernal was released in July, 2016
-\item New features are in the \texttt{cmscan} program: 
-\item Significantly faster on large datasets due saving models instead
-  of re-reading them for each sequence
-\item Annotates overlapping hits 
+\item example searches: bacterial genome; 1K metagenomic reads
 \end{itemize}
 
 \end{center}
+
+\vfill
+
+\end{slide}
+
+\vfill
+\end{slide}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{slide}
+\begin{center}
+\textbf{cmscan faster and annotates overlapping hits} \\
+
+\begin{itemize}
+\item CPU=0 running times
+\item multithreaded running times
+\end{itemize}
+
+\vfill
+\end{slide}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{slide}
+\begin{center}
+\textbf{Example of overlapping hits} \\
+
+\begin{itemize}
+\item SSU sequence? 
+\end{itemize}
 
 \vfill
 \end{slide}

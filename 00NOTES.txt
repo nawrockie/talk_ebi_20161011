@@ -58,4 +58,21 @@ Papers to read before giving talk:
 Holley 1965
 snoRNA paper (if I keep it in)
 
+----------------------
+Talkthrough: 
+14/15 min --> sequence and sequence+structure profiles
+   23 min --> acceleration
+   28 min --> rfam implications
+   32 min --> v1.1.2
+
+---------
+Ideas for final module (v1.1.2)
+
+- introduce cmsearch vs cmscan
+- timings of cmscan 1.1.1 and 1.1.2
+- overlap annotation
+
+
+
+
 
