@@ -154,12 +154,14 @@ secondary structure, alignment, and covariance model.
 
 \small
 \begin{description}
-\item[1.] 1965: Secondary structure determination of transfer RNA
+\item[1.] Motivation: collecting homologs facilitates comparative
+  sequence analysis.\\ 1965: Secondary structure determination of
+  transfer RNA.
 \item[2.] Sequence and sequence+structure profiles
 %\item[3.] Benchmarking RNA homology search
 \item[3.] Accelerating RNA homology search
 \item[4.] Implications for Rfam
-\item[5.] Newest features in latest version of Infernal
+\item[5.] New features in latest version of Infernal
 \end{description}
 
 \end{center}
@@ -218,163 +220,82 @@ secondary structure, alignment, and covariance model.
 %\center{\includegraphics[width=10.5in]{figs/16s-5s-trna-bpcolored}}
 %\end{slide}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% RAN OUT OF TIME, COULDN'T MAKE THIS SLIDE:
+\begin{comment}
 \begin{slide}
 
 \center{\textbf{TODO: Slide showing which conserved parts of 16S do what}}
 
 \vfill
 \end{slide}
+\end{comment}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{slide}
 
-\center{\textbf{Comparative sequence analysis informs biologists}}
+\center{\textbf{Comparative sequence analysis \\
+    of homologs informs biologists}}
 
-\small
+%\small
 \begin{itemize}
-\item What we can learn about the gene family being studied:
-  \begin{itemize}
-  \item structure
-    \begin{itemize}
-    \item tRNA (Holley, 1965)
-    \item SSU rRNA (Woese, 1980)
-    \end{itemize}
-  \item conservation suggests functional importance
-    \begin{itemize}
-    \item NEED EXAMPLE(S)
-    \end{itemize}
-  \end{itemize}
+\item Inference of  structure
+%  \begin{itemize}
+%  \item tRNA (Holley, 1965)
+%  \item SSU rRNA (Woese, 1980)
+%  \end{itemize}
+\item Inference of phylogeny of organisms
+%\item Inference of which biological processes are being carried out
+\item Inference of functional regions based on conservation levels
 \end{itemize}
 
 \vfill
 \end{slide}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{slide}
 \center{\includegraphics[width=10.5in]{figs/16s-5s-trna-info}}
 \end{slide}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{slide}
 
-\center{\textbf{Comparative sequence analysis informs biologists}}
+\center{\textbf{Comparative sequence analysis \\
+    of homologs informs biologists}}
 
-\small
+%\small
 \begin{itemize}
-\item What we can learn about the gene family being studied:
-  \begin{itemize}
-  \item structure
-    \begin{itemize}
-    \item tRNA (Holley, 1965)
-    \item SSU rRNA (Woese, 1980)
-    \end{itemize}
-  \item conservation suggests functional importance
-    \begin{itemize}
-    \item NEED EXAMPLE(S)
-    \end{itemize}
-  \end{itemize}
-
-\item What we can learn about organism/environment sequences derive
-  from:
-  \begin{itemize}
-  \item which biological processes are being carried out
-    \begin{itemize}
-    \item archaeal snoRNAs (GOOD EXAMPLE?)
-    \item bacterial rhodopsin (DeLong, 2000)
-    \end{itemize}
-  \item phylogenetic placement
-    \begin{itemize}
-    \item 16S SSU rRNA (Woese, 1977 and many more)
-    \item Fungal ITS sequences
-    \end{itemize}
-  \end{itemize}
+\item Inference of  structure
+%  \begin{itemize}
+%  \item tRNA (Holley, 1965)
+%  \item SSU rRNA (Woese, 1980)
+%  \end{itemize}
+\item Inference of phylogeny of organisms
+%\item Inference of which biological processes are being carried out
+\item Inference of functional regions based on conservation levels
 \end{itemize}
 
-\vfill
-\end{slide}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{slide}
-
-\center{\textbf{Comparative sequence analysis informs biologists}}
-
-\small
+\medskip
+\medskip
+\normalsize
 \begin{center}
-
-\begin{itemize}
-\item What we can learn about the gene family being studied:
-  \begin{itemize}
-  \item structure
-    \begin{itemize}
-    \item tRNA (Holley, 1965)
-    \item SSU rRNA (Woese, 1980)
-    \end{itemize}
-  \item conservation suggests functional importance
-    \begin{itemize}
-    \item NEED EXAMPLE(S)
-    \end{itemize}
-  \end{itemize}
-  
-\item What we can learn about organism/environment sequences derive
-  from:
-  \begin{itemize}
-  \item which biological processes are being carried out
-    \begin{itemize}
-    \item archaeal snoRNAs (GOOD EXAMPLE?)
-    \item bacterial rhodopsin (DeLong, 2000)
-    \end{itemize}
-  \item phylogenetic placement
-    \begin{itemize}
-    \item 16S SSU rRNA (Woese, 1977 and many more)
-    \item Fungal ITS sequences
-    \end{itemize}
-  \end{itemize}
-\end{itemize}
-
-\normalsize    
-Comparative analysis requires multiple gene family examples
-(homologs).
-
-\textcolor{red}{Computational \emph{homology search} methods use \\ one or more known
+\textbf{Computational homology search methods use \\ one or more known
 family members to find additional homologs.}
 \end{center}
 
 \vfill
 \end{slide}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{comment}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{slide}
-
-\center{\textbf{Key advances in homology search}}
-
-\small
-\begin{itemize}
-\item 1970-1974: Needleman, Wunsch and Sellers develop an $O(N^2)$algorithm for aligning two
-  sequences 
-\item 1981: Smith and Waterman devise a local alignment algorithm.
-\item 1987: Gribskov et al. introduce profile models with position
-  specific scoring systems.
-\item 1990: BLAST is published: a tool for fast sequence homology
-  searches, a heuristic of Smith/Waterman
-\item 1994: Krogh and Haussler introduce probabilistic profiles called
-  profile hidden Markov models (profile HMMs)
-\end{itemize}
-
-\vfill
-\end{slide}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\end{comment}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{slide}
 \begin{center}
 \textbf{Outline of talk}
 
 \begin{description}
-\item[1.] 1965: Secondary structure determination of transfer RNA
-\item[\textcolor{myorange}{2.}] \textcolor{myorange}{Sequence and sequence+structure profiles}
+\item[1.] Motivation: collecting homologs facilitates comparative
+  sequence analysis.\\ 1965: Secondary structure determination of
+  transfer RNA.
+\item[\textcolor{red}{2.}] \textcolor{red}{Sequence and sequence+structure profiles}
 %\item[3.] Benchmarking RNA homology search
 \item[3.] Accelerating RNA homology search
 \item[4.] Implications for Rfam
-\item[5.] Newest features in latest version of Infernal
+\item[5.] New features in latest version of Infernal
 \end{description}
 
 \end{center}
@@ -468,7 +389,7 @@ Base-paired positions covary \\ to maintain Watson-Crick complementarity.
              & repetitive DNA elements &  \\
   \\
   databases  & {\sc Pfam} and \sc{Dfam}       & {\sc Rfam} \\
-             & (14831 and 1132 entries) & (2450 families) \\
+             & (16306 and 4150 entries) & (2474 families) \\
   \\
 %  primary sequence & yes & yes \\
 %  \\
@@ -484,13 +405,24 @@ Base-paired positions covary \\ to maintain Watson-Crick complementarity.
 \end{tabular}
 
 %\hspace{1.2in}\includegraphics[height=2in]{figs/hmmer_logo}\hspace{1.05in}\includegraphics[height=2.6in]{figs/infernal_logo}
-\hspace{1.8in}\includegraphics[height=2.7in]{figs/hmmer-infernal-refs-2015}
+\hspace{2.2in}\includegraphics[height=3.5in]{figs/hmmer-infernal-refs-2015}
 
 \end{center}
 
 \vfill
 
 \end{slide}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\input{prob-hmm-cm-slides.tex}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{slide}
@@ -505,18 +437,6 @@ Base-paired positions covary \\ to maintain Watson-Crick complementarity.
 \vfill
 \end{slide}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\input{prob-hmm-cm-slides.tex}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{slide}
 \begin{center}
 \textbf{Is the added complexity worth it? \\
@@ -550,12 +470,14 @@ Base-paired positions covary \\ to maintain Watson-Crick complementarity.
 \textbf{Outline of talk}
 
 \begin{description}
-\item[1.] 1965: Secondary structure determination of transfer RNA
+\item[1.] Motivation: collecting homologs facilitates comparative
+  sequence analysis.\\ 1965: Secondary structure determination of
+  transfer RNA.
 \item[2.] Sequence and sequence+structure profiles
 %\item[3.] Benchmarking RNA homology search
-\item[\textcolor{myorange}{3.}] \textcolor{myorange}{Accelerating RNA homology search}
+\item[\textcolor{red}{3.}] \textcolor{red}{Accelerating RNA homology search}
 \item[4.] Implications for Rfam
-\item[5.] Newest features in latest version of Infernal
+\item[5.] New features in latest version of Infernal
 \end{description}
 
 \end{center}
@@ -674,9 +596,9 @@ Base-paired positions covary \\ to maintain Watson-Crick complementarity.
 \vfill
 \end{slide}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{slide}
-\center{\includegraphics[width=10.5in]{figs/16s-5s-trna-info-16sonly}}
-\end{slide}
+%\begin{slide}
+%\center{\includegraphics[width=10.5in]{figs/16s-5s-trna-info-16sonly}}
+%\end{slide}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{slide}
 \center{\includegraphics[width=10.5in]{figs/16s-5s-trna-info}}
@@ -714,12 +636,14 @@ Base-paired positions covary \\ to maintain Watson-Crick complementarity.
 \textbf{Outline of talk}
 
 \begin{description}
-\item[1.] 1965: Secondary structure determination of transfer RNA
+\item[1.] Motivation: collecting homologs facilitates comparative
+  sequence analysis.\\ 1965: Secondary structure determination of
+  transfer RNA.
 \item[2.] Sequence and sequence+structure profiles
 %\item[3.] Benchmarking RNA homology search
 \item[3.] Accelerating RNA homology search
-\item[\textcolor{myorange}{4.}] \textcolor{myorange}{Implications for Rfam}
-\item[5.] Newest features in latest version of Infernal
+\item[\textcolor{red}{4.}] \textcolor{red}{Implications for Rfam}
+\item[5.] New features in latest version of Infernal
 \end{description}
 
 \end{center}
@@ -838,7 +762,7 @@ New (Infernal 1.1)         & 4222.2   &  201,814 & 22,312 \\
 
 \small
 \begin{itemize}
-\item A bacterial genome takes about 30 minutes for all 2450 models.
+\item A bacterial genome takes about 30 minutes for all 2474 models.
 \end{itemize}
 
 \end{center}
@@ -857,12 +781,14 @@ New (Infernal 1.1)         & 4222.2   &  201,814 & 22,312 \\
 \textbf{Outline of talk}
 
 \begin{description}
-\item[1.] 1965: Secondary structure determination of transfer RNA
+\item[1.] Motivation: collecting homologs facilitates comparative
+  sequence analysis.\\ 1965: Secondary structure determination of
+  transfer RNA.
 \item[2.] Sequence and sequence+structure profiles
 %\item[3.] Benchmarking RNA homology search
 \item[3.] Accelerating RNA homology search
 \item[4.] Implications for Rfam
-\item[\textcolor{myorange}{5.}] \textcolor{myorange}{Newest features in latest version of Infernal}
+\item[\textcolor{red}{5.}] \textcolor{red}{New features in latest version of Infernal}
 \end{description}
 
 \end{center}
@@ -901,16 +827,16 @@ New (Infernal 1.1)         & 4222.2   &  201,814 & 22,312 \\
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{slide}
 \begin{center}
-\textbf{cmscan versus cmsearch: a subtle but important difference}
+\textbf{cmsearch versus cmscan: a subtle but important difference}
 \end{center}
 
 \scriptsize
 \begin{itemize}
 \item cmsearch: hits reported by model
   \begin{itemize}
-  \item \textcolor{coloneoftwo}{for each query} \textcolor{coloneoftwo}{CM}
+  \item \textcolor{red}{for each query} \textcolor{red}{CM}
     \begin{itemize}
-    \item \textcolor{coltwooftwo}{for each target} \textcolor{coltwooftwo}{sequence}
+    \item \textcolor{blue}{for each target} \textcolor{blue}{sequence}
       \begin{itemize}
       \item search for high-scoring hits
       \end{itemize}
@@ -921,9 +847,9 @@ New (Infernal 1.1)         & 4222.2   &  201,814 & 22,312 \\
 \begin{itemize}
 \item cmscan: hits reported by sequence
   \begin{itemize}
-  \item \textcolor{coltwooftwo}{for each query} \textcolor{coltwooftwo}{sequence}
+  \item \textcolor{blue}{for each query} \textcolor{blue}{sequence}
     \begin{itemize}
-    \item \textcolor{coloneoftwo}{for each target} \textcolor{coloneoftwo}{CM}
+    \item \textcolor{red}{for each target} \textcolor{red}{CM}
       \begin{itemize}
       \item search for high-scoring hits
       \end{itemize}
@@ -932,7 +858,7 @@ New (Infernal 1.1)         & 4222.2   &  201,814 & 22,312 \\
 \end{itemize}
 
 \begin{itemize}
-\item cmscan reads each CM for each sequence (\~ 2500 models)
+\item cmscan reads each CM for each sequence (all 2474 models)
 \item if sequences are short this makes reading CMs a bottleneck
 \end{itemize}
 
@@ -1014,7 +940,7 @@ cmscan v1.1.1   &     0.5h& 1678.6  & 37.3h   & 0.34    & 20.5h   & 0.17 \\
          &      &  & & & & \\ 
 cmsearch v1.1.2  &     0.5h& 1808.2  & 25.3h   & 0.23    & 8.3h    & 0.07 \\
          &      &  & & & & \\
-cmscan v1.1.2   &     0.5h& 1735.0  & \textcolor{coltwooftwo}{26.7h}   & \textcolor{coltwooftwo}{0.24}    & \textcolor{coltwooftwo}{9.5h}   & \textcolor{coltwooftwo}{0.08} \\
+cmscan v1.1.2   &     0.5h& 1735.0  & \textcolor{blue}{26.7h}   & \textcolor{blue}{0.24}    & \textcolor{blue}{9.5h}   & \textcolor{blue}{0.08} \\
 \end{tabular}
 
 \end{center}
@@ -1049,6 +975,7 @@ cmscan v1.1.2   &     0.5h& 1735.0  & \textcolor{coltwooftwo}{26.7h}   & \textco
 \vfill
 \end{slide}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{comment}
 \begin{slide}
 \begin{center}
 \textbf{cmscan v1.1.2 in ``hmmonly'' mode may be useful for \\ identifying RNAs in metagenomic datasets}
@@ -1058,32 +985,7 @@ cmscan v1.1.2   &     0.5h& 1735.0  & \textcolor{coltwooftwo}{26.7h}   & \textco
 \vfill
 
 \end{slide}
-
-\vfill
-\end{slide}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{slide}
-\begin{center}
-\textbf{cmscan faster and annotates overlapping hits} \\
-
-\begin{itemize}
-\item CPU=0 running times
-\item multithreaded running times
-\end{itemize}
-
-\vfill
-\end{slide}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{slide}
-\begin{center}
-\textbf{Example of overlapping hits} \\
-
-\begin{itemize}
-\item SSU sequence? 
-\end{itemize}
-
-\vfill
-\end{slide}
+\end{comment}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{slide}
 
@@ -1113,15 +1015,15 @@ cmscan v1.1.2   &     0.5h& 1735.0  & \textcolor{coltwooftwo}{26.7h}   & \textco
 %Travis Wheeler      & & & & & \\
 \begin{tabular}{l|l}
 \textbf{Janelia} & \textbf{EBI (Rfam)} \\ \hline
-{\bf Sean Eddy}     & {\bf Alex Bateman} \\
-Elena Rivas         & {\bf Rob Finn} \\
-Travis Wheeler      & {\bf Sarah Burge} \\ 
-{\bf Tom Jones}     & {\bf Evan Floden} \\
-Diana Kolbe         & John Tate \\
-Seolkyoung Jung     & Jen Daub \\
-Rob Finn            & \\
-Jody Clements       & \\
-Fred Davis          & \\
+Sean Eddy           & Alex Bateman \\
+Elena Rivas         & Rob Finn \\
+Travis Wheeler      & Anton Petrov \\
+Tom Jones           & Ioanna Kalvari \\
+Diana Kolbe         & Joanna Argasinska \\
+Seolkyoung Jung     & Sarah Burge \\ 
+Rob Finn            & Evan Floden \\
+Jody Clements       & John Tate \\
+Fred Davis          & Jen Daub \\
 Lee Henry           & \\
 Michael Farrar      & \\
 \end{tabular}
